@@ -58,6 +58,9 @@ const IPAddress THIS_DEV_IP(192, 168, 1, 25);       // Set static IP for this de
 #define RF433_TX_PIN 33 
 #define RF433_RX_PIN 32
 
+// Error led pin
+#define ERROR_LED 4
+
 // Serial 
 #if SERIAL_ENABLED
     #define log(...) Serial.printf(__VA_ARGS__)
