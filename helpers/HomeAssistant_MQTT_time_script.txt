@@ -1,0 +1,24 @@
+
+
+"/homeassistant/automations.yaml"
+
+        
+- id: 'XXXXXXXXXXXXX'
+  alias: MQTT Time
+  description: Returns the current time, when asked
+  trigger:
+  - platform: mqtt
+    topic: /to/current_time
+    payload: get
+  - platform: time
+    at: 06:00:00
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      qos: '2'
+      topic: /from/current_time
+      retain: false
+      payload: '{{ now().timestamp() | int + now().utcoffset().total_seconds() | int}}'
+  mode: single
+
