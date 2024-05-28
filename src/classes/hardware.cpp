@@ -16,8 +16,8 @@ void Hardware::init() {
     // Physical I/O 
     pinMode(RF433_TX_PIN, OUTPUT);
     pinMode(RF433_RX_PIN, INPUT_PULLDOWN);
-    //pinMode(somepin, OUTPUT); //TODO
-    //digitalWrite(somepin, LOW);
+    pinMode(ERROR_LED, OUTPUT);
+    digitalWrite(ERROR_LED, LOW);
     digitalWrite(RF433_TX_PIN, LOW);
 
     // Watchdog
@@ -40,8 +40,7 @@ void Hardware::print_info() {
 
 void Hardware::error() {
     log("\n----------------------- Error! -----------------------\n");
-    //pinMode(somepin, OUTPUT); //TODO
-    //digitalWrite(somepin, HIGH);
+    digitalWrite(ERROR_LED, HIGH);
 
     // Do nothing for 2 min then reboot, ah yes good error handling!
     do_nothing_loop(2*60*1000);
