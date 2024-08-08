@@ -5,11 +5,12 @@
 
 
 void Hardware::init() {
-    delay(2000); // Allow things to settle down
+    delay(1000); // Allow things to settle down
 
     #if SERIAL_ENABLED
         Serial.begin(SERIAL_BAUD_RATE);
-        while (!Serial && millis() < 15*1000) { }
+        while (!Serial && millis() < 5*1000) { }
+        delay(50);
         log("\n\n"); 
     #endif
 
@@ -110,7 +111,7 @@ uint16_t Hardware::calculate_node_battery_charge(uint8_t node_ID, uint16_t node_
 }
 
 
-bool Hardware::get_node_voltage_limits(uint8_t node_ID, uint16_t& volt_max, uint16_t& volt_min) {
+bool Hardware::get_node_voltage_limits(const uint8_t node_ID, uint16_t& volt_max, uint16_t& volt_min) {
     for (const auto &value : RADIO_NODES_VOLT_LIMITS) {
         if (value[0] == node_ID) {
             volt_max = value[1];
