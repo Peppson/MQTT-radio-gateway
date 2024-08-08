@@ -53,10 +53,12 @@ void loop() {
     if (!mqtt.connected()) {
         mqtt.connect_or_reboot();    
     } 
+
     // Get time
     if (millis() - mqtt.prev_sync_time > UPDATE_INTERVAL) {       
         mqtt.get_time_from_broker(); 
     }
+    
     // Reboot each monday at 05:00 AM
     hardware.reboot_once_a_week();
 }
