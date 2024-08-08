@@ -162,7 +162,7 @@ void MQTTGateway::connect_or_reboot() {
             return;
         }
         WDT_FEED();
-        delay(5000);
+        delay(3000);
     } 
 
     // No connection
