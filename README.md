@@ -23,7 +23,7 @@ maybe to turn on the coffeemaker, water plants, open blinds etc.
 &nbsp; 
 ## PCB - ESP32 Shield
 Made a custom PCB to fit ontop of an ESP32 Uno development board.   
-Integrates a *LAN8720* ethernet module, a *NRF24L01+* radio transceiver and some extra I/O in a compact format.    
+Integrates a *LAN8720* ethernet module, a *NRF24L01* radio transceiver and some extra I/O in a compact format.    
 
 KiCad PCB files can be found here: 
 [📂 _KiCad/](./_KiCad)  
